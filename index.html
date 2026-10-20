@@ -8,312 +8,347 @@
 <meta property="og:title" content="James Louis — Product Manager">
 <meta property="og:description" content="Growth & monetization PM in kids' edtech with an engineer's depth. Portfolio, case studies and career arc.">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#0B7A66">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B7A66'/%3E%3Ctext x='32' y='43' font-family='Arial,Helvetica,sans-serif' font-size='28' font-weight='bold' fill='white' text-anchor='middle'%3EJL%3C/text%3E%3C/svg%3E">
+<meta property="og:image" content="https://semajlo.github.io/assets/james-portrait.jpg">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231d1d1f'/%3E%3Ctext x='32' y='43' font-family='Arial,Helvetica,sans-serif' font-size='26' font-weight='bold' fill='white' text-anchor='middle'%3EJL%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
 <style>
-/* Layout: single quiet column, a deep-teal ledger accent; metric tiles carry the proof, type carries the voice. */
+/* Apple-grade typography on a Backal-style minimal personal page: white, monochrome, one blue, soft scroll reveals, one black flagship band. */
 :root{
-  --bg:#FBFAF7;
-  --surface:#FFFFFF;
-  --ink:#19242B;
-  --muted:#5B6B74;
-  --line:#E3E0D8;
-  --accent:#0B7A66;
-  --accent-ink:#09614F;
-  --accent-soft:#E2F0EC;
-  --gold:#C98A1B;
-  --gold-soft:#F7EDDA;
-  --chip:#F1EFE8;
-}
-@media (prefers-color-scheme: dark){
-  :root{
-    --bg:#101619; --surface:#172024; --ink:#E9EDEE; --muted:#9BAAB1; --line:#2A353B;
-    --accent:#3FBFA4; --accent-ink:#6AD3BC; --accent-soft:#17302C; --gold:#E0A944; --gold-soft:#332A17; --chip:#1E282D;
-    color-scheme: dark;
-  }
+  --bg:#ffffff;
+  --ink:#1d1d1f;
+  --grey:#6e6e73;
+  --hairline:#d2d2d7;
+  --blue:#0066cc;
+  --band:#000000;
+  --band-ink:#f5f5f7;
+  --band-grey:#a1a1a6;
+  --card:#f5f5f7;
+  --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue","Inter",Inter,Arial,sans-serif;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
 body{
-  background:var(--bg); color:var(--ink); margin:0;
-  font-family:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
-  font-size:16.5px; line-height:1.65;
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:var(--font);
+  font-size:17px; line-height:1.55;
+  -webkit-font-smoothing:antialiased;
   padding-left:max(16px,env(safe-area-inset-left,0px));
   padding-right:max(16px,env(safe-area-inset-right,0px));
-  padding-block:0 48px;
 }
-.wrap{max-width:880px; margin:0 auto}
-h1,h2,h3{font-family:"Bricolage Grotesque","Instrument Sans",system-ui,sans-serif; text-wrap:balance; margin:0}
-a{color:var(--accent-ink); text-decoration-thickness:1px; text-underline-offset:3px}
-.eyebrow{
-  font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; font-weight:600;
-  color:var(--accent-ink); display:flex; align-items:center; gap:10px; margin:0 0 14px;
+.wrap{max-width:980px; margin:0 auto}
+.narrow{max-width:760px; margin-inline:auto}
+a{color:var(--blue); text-decoration:none}
+a:hover{text-decoration:underline}
+h1,h2,h3{margin:0; font-weight:700; letter-spacing:-.022em; text-wrap:balance}
+img{max-width:100%; display:block}
+
+/* Reveal animation: visible at rest; .js hides, IO reveals */
+.reveal{opacity:1; transform:none}
+html.js .reveal{opacity:0; transform:translateY(26px); transition:opacity .8s cubic-bezier(.22,.61,.36,1), transform .8s cubic-bezier(.22,.61,.36,1)}
+html.js .reveal.in{opacity:1; transform:none}
+@media (prefers-reduced-motion: reduce){
+  html.js .reveal{opacity:1; transform:none; transition:none}
 }
-.eyebrow::after{content:""; height:1px; flex:1; background:var(--line)}
-section{padding-block:34px; border-top:1px solid var(--line)}
-section:first-of-type{border-top:none}
+
+/* Nav */
+nav{
+  display:flex; justify-content:space-between; align-items:center;
+  padding-block:22px; max-width:980px; margin:0 auto;
+}
+nav .mono{
+  width:40px; height:40px; border:1.5px solid var(--ink); border-radius:10px;
+  display:flex; align-items:center; justify-content:center;
+  font-weight:800; font-size:15px; letter-spacing:0; color:var(--ink);
+}
+nav .links{display:flex; gap:26px; font-size:14px; font-weight:500}
+nav .links a{color:var(--ink)}
+nav .links a:hover{color:var(--blue); text-decoration:none}
 
 /* Hero */
-.hero{padding-block:52px 38px}
-.hero .kicker{font-size:13px; letter-spacing:.16em; text-transform:uppercase; font-weight:600; color:var(--muted); margin:0 0 14px}
-.hero h1{font-size:clamp(40px,8vw,68px); font-weight:800; line-height:1.02; letter-spacing:-.015em}
-.hero h1 .dot{color:var(--accent)}
-.hero .tagline{font-size:clamp(18px,2.6vw,21px); max-width:62ch; margin:20px 0 0; color:var(--muted)}
-.hero .tagline strong{color:var(--ink); font-weight:600}
-.contact{display:flex; flex-wrap:wrap; gap:10px; margin-top:26px; align-items:center}
-.contact .pill{
-  display:inline-flex; align-items:center; gap:8px; border:1px solid var(--line); background:var(--surface);
-  border-radius:999px; padding:7px 14px; font-size:14px; font-weight:500; color:var(--ink); text-decoration:none;
+.hero{padding-block:72px 90px}
+.hero .portrait{
+  width:168px; height:168px; border-radius:50%; object-fit:cover; object-position:50% 12%;
+  margin-bottom:46px; box-shadow:0 10px 40px rgba(0,0,0,.14);
 }
-.contact .pill.loc{background:transparent; border-style:dashed; color:var(--muted)}
-.contact button.pill{cursor:pointer; font-family:inherit}
-.contact button.pill:hover, .contact a.pill:hover{border-color:var(--accent)}
-.contact .pill:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+.hero h1{
+  font-size:clamp(34px,6vw,58px); font-weight:700; line-height:1.12; letter-spacing:-.025em;
+  max-width:21ch;
+}
+.hero h1 a{border-bottom:3px solid var(--hairline); color:inherit}
+.hero h1 a:hover{border-color:var(--blue); color:var(--blue); text-decoration:none}
+.hero .sub{font-size:clamp(18px,2.4vw,22px); color:var(--grey); max-width:52ch; margin:30px 0 0; line-height:1.5}
+.hero .cta-row{display:flex; flex-wrap:wrap; gap:12px; margin-top:38px}
+.btn{
+  display:inline-flex; align-items:center; gap:8px;
+  border-radius:980px; padding:11px 22px; font-size:15px; font-weight:500;
+  background:var(--blue); color:#fff; border:none; cursor:pointer; font-family:inherit;
+}
+.btn:hover{background:#0077ed; text-decoration:none}
+.btn.ghost{background:transparent; color:var(--blue); border:1px solid var(--blue)}
+.btn.ghost:hover{background:var(--blue); color:#fff}
 
-/* Stats */
-.stats{display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:34px}
-.stat{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:16px 16px 13px}
-.stat b{display:block; font-family:"Bricolage Grotesque",sans-serif; font-size:clamp(24px,3.4vw,32px); font-weight:700; line-height:1.1; font-variant-numeric:tabular-nums}
-.stat span{font-size:13px; color:var(--muted); line-height:1.35; display:block; margin-top:4px}
-@media (max-width:640px){ .stats{grid-template-columns:repeat(2,1fr)} }
+/* Section headers */
+.kicker{font-size:13px; letter-spacing:.12em; text-transform:uppercase; font-weight:600; color:var(--grey); margin:0 0 10px}
+section{padding-block:70px}
+.rule{border:none; border-top:1px solid var(--hairline); margin:0}
 
-/* Case study */
-.case{background:var(--surface); border:1px solid var(--line); border-radius:14px; overflow:hidden}
-.case-head{background:var(--accent-soft); padding:26px clamp(18px,4vw,34px); border-bottom:1px solid var(--line)}
-.case-head .flag{font-size:12px; letter-spacing:.14em; text-transform:uppercase; font-weight:700; color:var(--accent-ink)}
-.case-head h3{font-size:clamp(23px,4vw,30px); font-weight:700; margin-top:6px}
-.case-head p{margin:10px 0 0; color:var(--muted); max-width:66ch}
-.case-body{padding:6px clamp(18px,4vw,34px) 26px}
-.case-grid{display:grid; grid-template-columns:1fr 1fr; gap:0 34px}
-@media (max-width:700px){ .case-grid{grid-template-columns:1fr} }
-.case-block{padding-block:20px; min-width:0}
-.case-block h4{margin:0 0 8px; font-size:13px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); font-weight:600}
-.case-block p{margin:0 0 10px}
-.case-block ul{margin:0; padding-left:18px}
-.case-block li{margin-bottom:7px}
-.bands{display:flex; gap:6px; margin:14px 0 6px; flex-wrap:wrap}
-.band{flex:1; min-width:110px; border-radius:8px; padding:9px 11px; font-size:12.5px; line-height:1.35; border:1px solid var(--line); background:var(--chip)}
-.band b{display:block; font-size:13px}
-.band.reduce b{color:#B3443A}.band.review b{color:var(--gold)}.band.maintain b{color:var(--accent-ink)}.band.invest b{color:var(--muted)}
-.before-after{display:flex; gap:12px; align-items:stretch; margin-top:12px; flex-wrap:wrap}
-.ba{flex:1; min-width:160px; border-radius:10px; padding:13px 15px; border:1px solid var(--line)}
-.ba small{display:block; font-size:11.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); font-weight:600; margin-bottom:4px}
-.ba.now{background:var(--accent-soft); border-color:transparent}
-.ba b{font-family:"Bricolage Grotesque",sans-serif; font-size:19px}
-.note{font-size:13.5px; color:var(--muted); margin:16px 0 0; padding-top:14px; border-top:1px dashed var(--line)}
+/* Belief */
+.belief p{
+  font-size:clamp(24px,3.6vw,36px); font-weight:600; letter-spacing:-.02em; line-height:1.3;
+  margin:0; max-width:30ch;
+}
+.belief p span{color:var(--grey)}
 
-/* Wins */
-.wins{display:grid; grid-template-columns:1fr 1fr; gap:12px}
-@media (max-width:700px){ .wins{grid-template-columns:1fr} }
-.win{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:18px 20px; min-width:0; display:flex; flex-direction:column; gap:6px}
-.win .metric{font-family:"Bricolage Grotesque",sans-serif; font-size:24px; font-weight:700; line-height:1.15; color:var(--accent-ink); font-variant-numeric:tabular-nums}
-.win .metric.soft{color:var(--gold)}
-.win h3{font-size:16.5px; font-weight:600}
-.win p{margin:0; font-size:14.5px; color:var(--muted)}
-.tag{align-self:flex-start; font-size:11.5px; letter-spacing:.09em; text-transform:uppercase; font-weight:600; color:var(--muted); background:var(--chip); border-radius:5px; padding:3px 8px; margin-bottom:2px}
+/* Flagship black band */
+.band{
+  background:var(--band); color:var(--band-ink);
+  margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px))) calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-left:max(16px,env(safe-area-inset-left,0px));
+  padding-right:max(16px,env(safe-area-inset-right,0px));
+  padding-block:100px;
+}
+.band .center{text-align:center}
+.band h2{
+  font-size:clamp(38px,7vw,72px); font-weight:700; letter-spacing:-.028em; line-height:1.05;
+}
+.band .lede{
+  font-size:clamp(18px,2.6vw,24px); color:var(--band-grey); font-weight:500;
+  max-width:46ch; margin:26px auto 0; line-height:1.45;
+}
+.band .lede b{color:var(--band-ink); font-weight:600}
+.shots{display:grid; grid-template-columns:1fr; gap:28px; margin-top:70px}
+.shot{border-radius:18px; overflow:hidden; background:#101013; box-shadow:0 20px 70px rgba(0,0,0,.55); border:1px solid #2a2a2e}
+.shot img{width:100%}
+html.js .shot{transition:transform .6s cubic-bezier(.22,.61,.36,1)}
+.shot:hover{transform:scale(1.012)}
+@media (prefers-reduced-motion: reduce){ .shot:hover{transform:none} }
+.shot-cap{font-size:14px; color:var(--band-grey); text-align:center; margin-top:14px}
+.band-stats{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:76px}
+.band-stat{text-align:center}
+.band-stat b{display:block; font-size:clamp(28px,4.5vw,44px); font-weight:700; letter-spacing:-.02em; font-variant-numeric:tabular-nums}
+.band-stat span{font-size:14px; color:var(--band-grey); display:block; margin-top:6px; line-height:1.4}
+@media (max-width:640px){ .band-stats{grid-template-columns:1fr; gap:30px} }
+.band-detail{max-width:62ch; margin:70px auto 0; color:var(--band-grey); font-size:16.5px}
+.band-detail strong{color:var(--band-ink); font-weight:600}
+.band-detail p{margin:0 0 16px}
 
-/* Timeline */
-.timeline{list-style:none; margin:0; padding:0; position:relative}
-.timeline::before{content:""; position:absolute; left:7px; top:8px; bottom:8px; width:2px; background:var(--line)}
-.timeline li{position:relative; padding:0 0 26px 34px}
-.timeline li:last-child{padding-bottom:0}
-.timeline li::before{content:""; position:absolute; left:1px; top:7px; width:14px; height:14px; border-radius:50%; background:var(--bg); border:3px solid var(--accent)}
-.timeline li.past::before{border-color:var(--line); background:var(--chip)}
-.timeline .when{font-size:12.5px; letter-spacing:.1em; text-transform:uppercase; font-weight:600; color:var(--muted); font-variant-numeric:tabular-nums}
-.timeline h3{font-size:17.5px; font-weight:700; margin:3px 0 4px}
-.timeline p{margin:0; font-size:14.5px; color:var(--muted); max-width:68ch}
+/* Selected work */
+.work-item{padding-block:46px; border-top:1px solid var(--hairline)}
+.work-item:first-of-type{border-top:none}
+.work-item h3{font-size:clamp(24px,3.4vw,32px); font-weight:700; letter-spacing:-.022em}
+.work-item .meta{font-size:14px; color:var(--grey); margin:8px 0 16px; font-weight:500}
+.work-item .metric{color:var(--blue); font-weight:700; font-variant-numeric:tabular-nums}
+.work-item p{margin:0; max-width:68ch; color:#424245; font-size:17px}
 
-/* How I work */
-.hiw{display:grid; grid-template-columns:1fr 1fr; gap:12px}
-@media (max-width:700px){ .hiw{grid-template-columns:1fr} }
-.hiw div{min-width:0; border-left:3px solid var(--accent); padding:4px 0 4px 16px}
-.hiw h3{font-size:16.5px; font-weight:700; margin-bottom:5px}
-.hiw p{margin:0; font-size:14.5px; color:var(--muted)}
+/* Career */
+.career{display:flex; flex-direction:column; gap:0}
+.career-row{
+  display:grid; grid-template-columns:200px 1fr; gap:24px;
+  padding-block:26px; border-top:1px solid var(--hairline);
+}
+.career-row:first-child{border-top:none}
+.career-row .yrs{font-size:14px; font-weight:600; color:var(--grey); font-variant-numeric:tabular-nums; padding-top:3px}
+.career-row h3{font-size:19px; font-weight:600; letter-spacing:-.01em}
+.career-row p{margin:6px 0 0; color:var(--grey); font-size:15.5px; max-width:60ch}
+@media (max-width:640px){ .career-row{grid-template-columns:1fr; gap:4px} }
 
-/* Toolbox */
-.tools{display:flex; flex-direction:column; gap:14px}
-.toolrow{display:flex; gap:12px; align-items:baseline; flex-wrap:wrap}
-.toolrow b{font-size:12.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--muted); font-weight:600; min-width:150px}
-.chips{display:flex; flex-wrap:wrap; gap:7px; min-width:0}
-.chips span{background:var(--chip); border:1px solid var(--line); border-radius:6px; padding:3px 10px; font-size:13.5px}
+/* Contact */
+.contact-sec{display:grid; grid-template-columns:1fr 340px; gap:60px; align-items:center}
+@media (max-width:760px){ .contact-sec{grid-template-columns:1fr} .contact-sec .photo{order:-1; max-width:300px} }
+.contact-sec h2{font-size:clamp(34px,5.5vw,54px); letter-spacing:-.025em; line-height:1.1}
+.contact-sec .photo img{border-radius:20px; box-shadow:0 18px 60px rgba(0,0,0,.18)}
+.contact-sec p{color:var(--grey); max-width:46ch; font-size:18px; margin:20px 0 30px}
+.pill-row{display:flex; flex-wrap:wrap; gap:12px}
+.copied{font-weight:600}
 
 /* Footer */
-.footer{padding-block:40px 10px; text-align:left}
-.footer h2{font-size:clamp(26px,5vw,38px); font-weight:800; letter-spacing:-.01em}
-.footer p{color:var(--muted); max-width:58ch}
-.copied{color:var(--accent-ink); font-weight:600}
-.colophon{font-size:12.5px; color:var(--muted); margin-top:34px; padding-top:16px; border-top:1px solid var(--line)}
-@media (prefers-reduced-motion: no-preference){
-  .win, .stat{transition:border-color .15s ease}
-  .win:hover, .stat:hover{border-color:var(--accent)}
-}
+footer{padding-block:30px 44px; border-top:1px solid var(--hairline); color:var(--grey); font-size:13.5px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px}
+footer a{color:var(--grey)}
 </style>
 </head>
 <body>
-<div class="wrap">
 
-<header class="hero">
-  <p class="kicker">Product Manager · Mobile · Gaming · Kids EdTech</p>
-  <h1>James Louis<span class="dot">.</span></h1>
-  <p class="tagline">I build growth and monetization for products parents trust and kids love. <strong>Fifteen years in mobile and games — twelve of them writing and leading the code myself</strong> — before taking over product at Kiddopia, a global kids' learning platform. I speak fluent engineer, think in funnels, and ship.</p>
-  <div class="contact">
-    <button class="pill" id="copyEmail" type="button">✉ james.louis25@gmail.com <span id="copyState" aria-live="polite"></span></button>
-    <a class="pill" href="https://www.linkedin.com/in/jlopm" target="_blank" rel="noopener">in/ jlopm</a>
-    <span class="pill loc">📍 India · working globally</span>
+<nav>
+  <span class="mono">JL</span>
+  <div class="links">
+    <a href="#work">Work</a>
+    <a href="#career">Career</a>
+    <a href="#contact">Contact</a>
   </div>
-  <div class="stats">
-    <div class="stat"><b>15+ yrs</b><span>building mobile &amp; game products</span></div>
-    <div class="stat"><b>175</b><span>App Store markets in my pricing model</span></div>
-    <div class="stat"><b>+380%</b><span>iOS ratings uplift from one redesigned flow</span></div>
-    <div class="stat"><b>48→97%</b><span>sign-up completion after funnel rework</span></div>
+</nav>
+
+<header class="hero wrap">
+  <img class="portrait reveal" src="assets/james-portrait.jpg" alt="James Louis" width="168" height="168">
+  <h1 class="reveal">Hi, I'm James Louis. Currently, I'm a Product Manager at <a href="https://www.kiddopia.com" target="_blank" rel="noopener">Kiddopia</a> based in Mumbai.</h1>
+  <p class="sub reveal">I build growth and monetization for products parents trust and kids love — fifteen years in mobile and games, twelve of them writing and leading the code myself. I speak fluent engineer, think in funnels, and ship.</p>
+  <div class="cta-row reveal">
+    <a class="btn" href="#work">See my work</a>
+    <a class="btn ghost" href="https://www.linkedin.com/in/jlopm" target="_blank" rel="noopener">LinkedIn</a>
   </div>
 </header>
 
-<section id="case">
-  <p class="eyebrow">Flagship case study</p>
-  <div class="case">
-    <div class="case-head">
-      <span class="flag">Side-built · In active use</span>
-      <h3>Global Pricing Intelligence Dashboard</h3>
-      <p>A decision-support tool that answers one question for 175 markets: <em>what should this subscription cost here, so it's fair to a local family and sound for the business?</em></p>
+<hr class="rule">
+
+<section class="belief wrap">
+  <p class="reveal">I believe the best product decisions happen where <span>data, engineering reality, and a parent's trust</span> meet — and I've spent my career standing exactly at that intersection.</p>
+</section>
+
+<section class="band" id="flagship">
+  <div class="wrap center">
+    <p class="kicker reveal" style="color:var(--band-grey)">Flagship project · side-built, in active use</p>
+    <h2 class="reveal">Global Pricing Intelligence.</h2>
+    <p class="lede reveal">One question, answered for <b>175 markets</b>: what should a subscription cost here, so it's fair to a local family and sound for the business?</p>
+
+    <div class="shots">
+      <figure class="shot reveal" style="margin:0">
+        <img src="assets/dashboard-intelligence.webp" alt="Pricing Intelligence view: PPP and GDP-adjusted subscription pricing across 175 markets, with a command center showing 174 markets analysed, 169 pricing opportunities and a prioritized decisions list" loading="lazy">
+      </figure>
+      <figcaption class="shot-cap reveal">The Pricing Command Center — PPP/GDP benchmarks, confidence scoring, and a prioritized decision queue per market.</figcaption>
+      <figure class="shot reveal" style="margin:0">
+        <img src="assets/dashboard-pricing.webp" alt="All Product Pricing view: store price points for every product across all regions, filterable by store, app, subscription group and product, with CSV export" loading="lazy">
+      </figure>
+      <figcaption class="shot-cap reveal">Every price point for every product, every store, every region — searchable, comparable, exportable.</figcaption>
     </div>
-    <div class="case-body">
-      <div class="case-grid">
-        <div class="case-block">
-          <h4>The problem</h4>
-          <p>Apple and Google set international prices by exchange rate, not by what people can afford — so a US-anchored $12.99 subscription lands very differently in Oslo than in Jakarta. Nobody on the team could see where the gaps were.</p>
-          <p>Worse, even <em>checking</em> a single price was painful: log in to the store console, pick the app, drill through five levels of subscription screens, then scroll an unsearchable region list. Roughly ten minutes per product per region — hours across apps, for every team that needed a number.</p>
-        </div>
-        <div class="case-block">
-          <h4>What I built</h4>
-          <ul>
-            <li><strong>PPP-led pricing model</strong> — purchasing-power-parity conversion as the primary signal, GDP per capita as a secondary affordability check, per market.</li>
-            <li><strong>Apple and Google treated independently</strong>, with recommended prices snapped to each platform's valid price points.</li>
-            <li><strong>Instant search and cross-product comparison</strong> — any price, any market, any product, in seconds.</li>
-            <li><strong>Transparent calculation chain</strong> — every recommendation shows its working, because a tool nobody can audit is a tool nobody trusts.</li>
-            <li><strong>Competitor pricing view</strong>, so price points are set with the market in sight, not in a vacuum.</li>
-          </ul>
-        </div>
-        <div class="case-block">
-          <h4>The recommendation engine</h4>
-          <p>Each market is scored against configurable affordability thresholds and sorted into an action band — guidance, never auto-changes. Pricing stays a human decision; the tool makes it an informed one.</p>
-          <div class="bands">
-            <div class="band reduce"><b>Reduce</b>Overpriced &gt;20% vs. local purchasing power</div>
-            <div class="band review"><b>Review</b>Drifting 10–20% out of alignment</div>
-            <div class="band maintain"><b>Maintain</b>Within ±10% — aligned</div>
-            <div class="band invest"><b>Investigate</b>Underpriced — possible revenue left behind</div>
-          </div>
-        </div>
-        <div class="case-block">
-          <h4>Impact</h4>
-          <div class="before-after">
-            <div class="ba"><small>Before</small><b>~10 min</b> per price lookup, store console only</div>
-            <div class="ba now"><small>After</small><b>Seconds</b> — searchable, comparable, explained</div>
-          </div>
-          <p style="margin-top:12px">Now a shared reference for Product, UA, Marketing and Business: anyone can gauge a sensible price point for a region without touching a store console. Roadmap: live App Store Connect / Play Console pricing, performance data (trials, conversion, ARPU, churn) and an AI recommendation layer.</p>
-        </div>
-      </div>
-      <p class="note">Why it's credible: I designed the model, defined the thresholds, and built the tool — the same end-to-end ownership I bring to any product problem.</p>
+
+    <div class="band-stats">
+      <div class="band-stat reveal"><b>175</b><span>markets priced against PPP &amp; GDP benchmarks</span></div>
+      <div class="band-stat reveal"><b>18,800+</b><span>Apple &amp; Google price points imported and indexed</span></div>
+      <div class="band-stat reveal"><b>10 min → sec</b><span>per price lookup, vs. drilling through store consoles</span></div>
+    </div>
+
+    <div class="band-detail reveal" style="text-align:left">
+      <p><strong>The problem.</strong> Apple and Google set international prices by exchange rate, not affordability — so a US-anchored price lands very differently in Oslo than in Jakarta. And just checking one price meant five levels of store-console screens and an unsearchable region list.</p>
+      <p><strong>What I built.</strong> A PPP-led pricing model with GDP per capita as a secondary signal, Apple and Google treated independently, recommendations snapped to valid platform price points, competitor pricing in view, and a transparent calculation chain — because a tool nobody can audit is a tool nobody trusts.</p>
+      <p><strong>The result.</strong> A shared reference for Product, UA, Marketing and Business. Guidance, never auto-changes: pricing stays a human decision — the tool makes it an informed one.</p>
     </div>
   </div>
 </section>
 
-<section id="wins">
-  <p class="eyebrow">Selected wins at Kiddopia</p>
-  <div class="wins">
-    <div class="win"><span class="tag">Social proof</span><span class="metric">+380% / +310%</span><h3>Ratings flow redesign</h3><p>Cut the steps between a happy moment and the native ratings prompt. iOS ratings up 380%, Android up ~310%; scaled past 10K in-app rating interactions with phased regional rollouts.</p></div>
-    <div class="win"><span class="tag">Activation</span><span class="metric">48% → 97%</span><h3>Sign-up rebuild</h3><p>Made sign-up mandatory but frictionless — added social login and streamlined the flow. Completion doubled from under half of users to near-total.</p></div>
-    <div class="win"><span class="tag">Parent engagement</span><span class="metric">2% → 7%</span><h3>Parental Corner</h3><p>Replaced a buried Settings screen with a dedicated parent space — retention, trust, purchase and referral touchpoints aimed directly at the decision-maker. Click-through more than tripled.</p></div>
-    <div class="win"><span class="tag">Monetization</span><span class="metric soft">Trial lift</span><h3>Stripe as a second paywall</h3><p>Introduced a third-party payment path alongside the app stores and lifted install→trial conversion for churned users on both iOS and Android. Still iterating.</p></div>
-    <div class="win"><span class="tag">Engagement</span><span class="metric soft">Full rollout</span><h3>Limited Time Access</h3><p>Designed and iterated a timed content-access mechanic to 100% rollout — lifting install→trial, trial→activation, and nudging reactivations.</p></div>
-    <div class="win"><span class="tag">Conversion</span><span class="metric soft">Decluttered</span><h3>Plan screen optimization</h3><p>Stripped the subscription plan screen to what matters and improved trial conversion — informed by a device-level insight: iPads out-converted iPhones at every funnel step, so iPhone got the redesign first.</p></div>
-    <div class="win"><span class="tag">Acquisition</span><span class="metric soft">Lower-CAC</span><h3>Referral program, 0→1</h3><p>Piloted referrals across app, website and email newsletters, defining the full referral→install→trial→attribution journey as a new acquisition channel.</p></div>
-    <div class="win"><span class="tag">Retention</span><span class="metric soft">Store-level saves</span><h3>Win-back &amp; retention offers</h3><p>Enabled Apple Retention Messaging to catch cancellations with promo and plan-switch offers, plus App Store win-back offers that reactivate churned users from outside the app.</p></div>
+<section id="work" class="wrap">
+  <p class="kicker reveal">Selected work</p>
+  <div class="work-item reveal">
+    <h3>Ratings flow redesign</h3>
+    <p class="meta">Product Manager, Kiddopia · <span class="metric">+380% iOS · +310% Android</span></p>
+    <p>Cut the steps between a happy moment and the native ratings prompt. Ratings volume nearly quintupled on iOS, scaled past 10K in-app rating interactions, with phased regional rollouts to keep measurement clean.</p>
+  </div>
+  <div class="work-item reveal">
+    <h3>Sign-up rebuild</h3>
+    <p class="meta">Product Manager, Kiddopia · <span class="metric">48% → 97% completion</span></p>
+    <p>Made sign-up mandatory but frictionless — social login, fewer fields, clearer flow. Completion went from under half of users to near-total, giving every downstream team an identified user.</p>
+  </div>
+  <div class="work-item reveal">
+    <h3>Parental Corner</h3>
+    <p class="meta">Product Manager, Kiddopia · <span class="metric">2% → 7% engagement</span></p>
+    <p>Replaced a buried Settings screen with a dedicated parent space — retention, trust, purchase and referral touchpoints aimed directly at the decision-maker. Click-through more than tripled.</p>
+  </div>
+  <div class="work-item reveal">
+    <h3>Stripe as a second paywall</h3>
+    <p class="meta">Product Manager, Kiddopia · Trial conversion lift</p>
+    <p>Introduced a third-party payment path alongside the app stores and lifted install→trial conversion for churned users on both platforms. Still iterating.</p>
+  </div>
+  <div class="work-item reveal">
+    <h3>Limited Time Access</h3>
+    <p class="meta">Product Manager, Kiddopia · Fully rolled out</p>
+    <p>Designed and iterated a timed content-access mechanic to 100% rollout — lifting install→trial and trial→activation, and nudging reactivations. Informed by a device-level insight: iPads out-converted iPhones at every funnel step, so iPhone got the plan-screen redesign first.</p>
+  </div>
+  <div class="work-item reveal">
+    <h3>Win-back &amp; retention offers</h3>
+    <p class="meta">Product Manager, Kiddopia · Store-level saves</p>
+    <p>Enabled Apple Retention Messaging to catch cancellations with promo and plan-switch offers, plus App Store win-back offers that reactivate churned users from outside the app — and piloted a referral program across app, web and email as a lower-CAC acquisition channel.</p>
   </div>
 </section>
 
-<section id="arc">
-  <p class="eyebrow">Career arc</p>
-  <ul class="timeline">
-    <li>
-      <span class="when">June 2025 – Present</span>
-      <h3>Product Manager · Kiddopia</h3>
-      <p>Own mobile product across engagement, personalization, monetization, acquisition and retention — from discovery and PRD through launch and post-launch measurement. Localization across 7+ languages; 0→1 work on standalone-app subscriptions and retention APIs.</p>
-    </li>
-    <li class="past">
-      <span class="when">2022 – 2025</span>
-      <h3>Technical Lead · Kiddopia</h3>
-      <p>Led engineering across iOS, Android, Unity and Cocos2dx — architecture to production. Translating business goals into technical solutions here is what pulled me toward product.</p>
-    </li>
-    <li class="past">
-      <span class="when">2014 – 2022</span>
-      <h3>Sr. Game Developer · Kiddopia</h3>
-      <p>Built and shipped the learning games and apps millions of kids use — eight years of hands-on craft in the product I now manage.</p>
-    </li>
-    <li class="past">
-      <span class="when">2010 – 2014</span>
-      <h3>Game Developer · Spiel Studios, Webchutney, Games2win, Synqua</h3>
-      <p>Mumbai's mobile-games circuit: shipped consumer iOS/Android titles, integrated ad networks and monetization SDKs, and learned how games make money and keep players.</p>
-    </li>
-  </ul>
-</section>
+<hr class="rule">
 
-<section id="how">
-  <p class="eyebrow">How I work</p>
-  <div class="hiw">
-    <div><h3>Engineer's depth, PM's altitude</h3><p>Twelve years shipping code means I scope accurately, spot technical risk early, and never need a translator between product and engineering.</p></div>
-    <div><h3>Data-driven, honestly</h3><p>I look past vanity CTR to session behavior, interaction depth and downstream outcomes — and I pre-validate cohorts, overlap and metric definitions before an experiment launches.</p></div>
-    <div><h3>A decade-plus in kids' edtech</h3><p>I know this market's players, its parents, its compliance constraints (parental gates, COPPA-era sensibilities) and what actually makes a child come back tomorrow.</p></div>
-    <div><h3>Build the tool if it doesn't exist</h3><p>When the team needed pricing intelligence nobody sold, I built it. Bias to action over waiting for the perfect process.</p></div>
+<section id="career" class="wrap">
+  <p class="kicker reveal">Career</p>
+  <div class="career">
+    <div class="career-row reveal">
+      <span class="yrs">2025 → Now</span>
+      <div><h3>Product Manager · Kiddopia</h3><p>Own mobile product across engagement, personalization, monetization, acquisition and retention — discovery and PRD through launch and measurement. Localization in 7+ languages; 0→1 subscriptions and retention APIs.</p></div>
+    </div>
+    <div class="career-row reveal">
+      <span class="yrs">2022 – 2025</span>
+      <div><h3>Technical Lead · Kiddopia</h3><p>Led engineering across iOS, Android, Unity and Cocos2dx — architecture to production. Translating business goals into technical solutions is what pulled me toward product.</p></div>
+    </div>
+    <div class="career-row reveal">
+      <span class="yrs">2014 – 2022</span>
+      <div><h3>Sr. Game Developer · Kiddopia</h3><p>Built and shipped the learning games and apps millions of kids use — eight years of hands-on craft in the product I now manage.</p></div>
+    </div>
+    <div class="career-row reveal">
+      <span class="yrs">2010 – 2014</span>
+      <div><h3>Game Developer · Spiel Studios, Webchutney, Games2win, Synqua</h3><p>Mumbai's mobile-games circuit: shipped consumer iOS/Android titles, integrated ad and monetization SDKs, learned how games make money and keep players.</p></div>
+    </div>
   </div>
 </section>
 
-<section id="toolbox">
-  <p class="eyebrow">Toolbox</p>
-  <div class="tools">
-    <div class="toolrow"><b>Analytics &amp; growth</b><div class="chips"><span>Firebase</span><span>RevenueCat</span><span>AppsFlyer</span><span>MoEngage</span><span>A/B testing</span><span>Cohort &amp; funnel analysis</span></div></div>
-    <div class="toolrow"><b>Product</b><div class="chips"><span>Jira</span><span>Confluence</span><span>Figma</span><span>Notion</span><span>PRDs</span><span>Roadmapping</span></div></div>
-    <div class="toolrow"><b>Platforms</b><div class="chips"><span>App Store Connect</span><span>Google Play Console</span><span>Stripe</span><span>Apple Retention Messaging</span><span>Win-back Offers</span></div></div>
-    <div class="toolrow"><b>Technical</b><div class="chips"><span>iOS / Swift</span><span>Android</span><span>Unity / C#</span><span>Cocos2dx</span><span>Flutter</span><span>React Native</span></div></div>
+<hr class="rule">
+
+<section id="contact" class="wrap contact-sec">
+  <div>
+    <h2 class="reveal">Want more? Let's chat.</h2>
+    <p class="reveal">Open to growth, monetization and consumer-product roles where an engineer-turned-PM with deep kids' edtech and gaming experience moves the numbers.</p>
+    <div class="pill-row reveal">
+      <button class="btn" id="copyEmail" type="button">✉ james.louis25@gmail.com <span id="copyState" aria-live="polite"></span></button>
+      <a class="btn ghost" href="mailto:james.louis25@gmail.com">Email me</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/jlopm" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+  <div class="photo reveal">
+    <img src="assets/james.jpg" alt="James Louis standing, smiling" loading="lazy">
   </div>
 </section>
 
-<section class="footer">
-  <h2>Let's talk<span style="color:var(--accent)">.</span></h2>
-  <p>Open to growth, monetization and consumer-product roles where an engineer-turned-PM with deep kids' edtech and gaming experience moves the numbers.</p>
-  <div class="contact">
-    <button class="pill" id="copyEmail2" type="button">✉ james.louis25@gmail.com <span id="copyState2" aria-live="polite"></span></button>
-    <a class="pill" href="mailto:james.louis25@gmail.com">Email me</a>
-    <a class="pill" href="https://www.linkedin.com/in/jlopm" target="_blank" rel="noopener">LinkedIn · in/jlopm</a>
-  </div>
-  <p class="colophon">© <span id="year">2026</span> James Louis · Mumbai, India</p>
-</section>
-
-</div>
+<footer class="wrap">
+  <span>© <span id="year">2026</span> James Louis · Mumbai, India</span>
+  <span><a href="#top">Back to top ↑</a></span>
+</footer>
 
 <script>
+document.documentElement.classList.add('js');
 document.getElementById('year').textContent = new Date().getFullYear();
-function wireCopy(btnId, stateId){
-  var btn=document.getElementById(btnId), state=document.getElementById(stateId);
+
+// Scroll reveal with gentle stagger
+(function(){
+  var items = document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){ items.forEach(function(el){el.classList.add('in');}); return; }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var el = e.target;
+        var siblings = Array.prototype.filter.call(el.parentNode.children, function(c){return c.classList && c.classList.contains('reveal') && !c.classList.contains('in');});
+        var idx = siblings.indexOf(el);
+        setTimeout(function(){ el.classList.add('in'); }, Math.max(0, idx) * 90);
+        io.unobserve(el);
+      }
+    });
+  }, {threshold: 0.12, rootMargin: '0px 0px -40px 0px'});
+  items.forEach(function(el){ io.observe(el); });
+  // reveal anything already above the fold immediately
+  window.addEventListener('load', function(){
+    items.forEach(function(el){
+      if(el.getBoundingClientRect().top < window.innerHeight && !el.classList.contains('in')) el.classList.add('in');
+    });
+  });
+})();
+
+// Email copy
+(function(){
+  var btn=document.getElementById('copyEmail'), state=document.getElementById('copyState');
   if(!btn) return;
   btn.addEventListener('click', function(){
     var email='james.louis25@gmail.com';
     function done(){ state.textContent=' · copied'; state.className='copied'; setTimeout(function(){state.textContent='';},2000); }
-    function fallback(){
-      try{ var r=document.createRange(); r.selectNodeContents(btn); var sel=window.getSelection(); sel.removeAllRanges(); sel.addRange(r); }catch(e){}
-      state.textContent=' · select & copy';
-      setTimeout(function(){state.textContent='';},2500);
-    }
+    function fallback(){ state.textContent=' · select & copy'; setTimeout(function(){state.textContent='';},2500); }
     if(navigator.clipboard && navigator.clipboard.writeText){
       navigator.clipboard.writeText(email).then(done).catch(fallback);
     } else { fallback(); }
   });
-}
-wireCopy('copyEmail','copyState');
-wireCopy('copyEmail2','copyState2');
+})();
 </script>
 </body>
 </html>
